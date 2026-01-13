@@ -1,0 +1,106 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.1), transparent 40%);
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    max-width: var(--container-max-width);
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--color-primary);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.02em;
+}
+
+.highlight {
+    color: var(--color-primary);
+    background: linear-gradient(120deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.6;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: var(--color-primary);
+    color: white;
+    padding: 16px 32px;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 1.125rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: var(--shadow-lg);
+}
+
+.ctaButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.4);
+}
+
+.ctaButton:active {
+    transform: translateY(0);
+}
+
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--spacing-md);
+    width: 100%;
+    max-width: var(--container-max-width);
+}
+
+.card {
+    background: var(--color-surface-glass);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.icon {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    width: 24px;
+    height: 24px;
+}
+
+.card h3 {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.card p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
