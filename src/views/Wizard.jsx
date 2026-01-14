@@ -90,14 +90,7 @@ export default function Wizard() {
 
             <Stepper currentStep={currentStep} totalSteps={4} />
 
-            {step === 5 && (
-                <motion.div
-                    initial={{ scale: 0 }} animate={{ scale: 1 }}
-                    style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}
-                >
-                    <CheckCircle size={64} color="var(--color-accent)" />
-                </motion.div>
-            )}
+
             <h1 className={stepStyles.question} style={{ fontSize: '1.2rem', opacity: 0.8, marginBottom: '2rem' }}>
                 {step === 100 ? 'Wichtiger Hinweis' : step === 5 ? 'Dein Ergebnis' : 'Förder-Check'}
             </h1>

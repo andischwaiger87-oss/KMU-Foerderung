@@ -11,7 +11,7 @@ export default function StepResult({ data }) {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
         >
-            <CheckCircle size={64} color="var(--color-accent)" style={{ marginBottom: '1rem' }} />
+            <CheckCircle size={64} color="var(--color-primary)" style={{ marginBottom: '1rem' }} />
             <h2 className={styles.question}>Glückwunsch!</h2>
             <p className={styles.description}>
                 Dein Projekt ist förderfähig.
