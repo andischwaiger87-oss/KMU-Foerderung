@@ -34,10 +34,11 @@
 }
 
 .highlight {
-    color: var(--color-primary);
-    background: linear-gradient(120deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    background: var(--gradient-brand);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-weight: 800;
 }
 
 .subtitle {
@@ -51,19 +52,19 @@
     display: inline-flex;
     align-items: center;
     gap: var(--spacing-sm);
-    background: var(--color-primary);
+    background: var(--gradient-brand);
     color: white;
     padding: 16px 32px;
     border-radius: var(--radius-full);
     font-weight: 600;
     font-size: 1.125rem;
     transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-glow);
 }
 
 .ctaButton:hover {
     transform: translateY(-2px);
-    box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 0 30px rgba(111, 0, 255, 0.5);
 }
 
 .ctaButton:active {

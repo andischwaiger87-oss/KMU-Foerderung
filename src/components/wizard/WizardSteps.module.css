@@ -136,7 +136,7 @@
 .primaryButton {
     width: 100%;
     padding: 1rem;
-    background: var(--color-primary);
+    background: var(--gradient-brand);
     color: white;
     border-radius: var(--radius-full);
     font-weight: 600;
@@ -144,9 +144,19 @@
     justify-content: center;
     align-items: center;
     gap: var(--spacing-sm);
+    box-shadow: var(--shadow-glow);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.primaryButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(111, 0, 255, 0.5);
 }
 
 .primaryButton:disabled {
+    background: var(--color-text-muted);
+    box-shadow: none;
     opacity: 0.5;
     cursor: not-allowed;
+    transform: none;
 }

@@ -24,12 +24,17 @@ const AnimatedRoutes = () => {
   )
 }
 
+import Footer from './components/Footer'
+
 function App() {
   return (
     <Router>
-      <Suspense fallback={<div className="loading-screen">Laden...</div>}>
-        <AnimatedRoutes />
-      </Suspense>
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <Suspense fallback={<div className="loading-screen">Laden...</div>}>
+          <AnimatedRoutes />
+        </Suspense>
+        <Footer />
+      </div>
     </Router>
   )
 }
