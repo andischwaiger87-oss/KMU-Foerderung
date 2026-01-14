@@ -12,11 +12,13 @@ export default function Footer() {
             <p style={{ fontSize: '0.7rem', color: 'var(--color-text-dim)', marginBottom: '0.25rem' }}>
                 Ein Service von
             </p>
-            <img
-                src="/mosaik-logo.png"
-                alt="mosaik design"
-                style={{ height: '18px', opacity: 0.9 }}
-            />
+            <a href="https://mosaik-design.at" target="_blank" rel="noopener noreferrer">
+                <img
+                    src="/mosaik-logo.png"
+                    alt="mosaik design"
+                    style={{ height: '18px', opacity: 0.9 }}
+                />
+            </a>
         </footer>
     )
 }

@@ -20,7 +20,11 @@ const steps = [
         id: 2,
         title: 'Antragstellung (Umsetzung)',
         icon: FileText,
-        content: 'Reiche den Antrag im Fördermanager ein. Du brauchst dafür deine Projektnummer aus der Beratung. WICHTIG: Noch keine Bestellungen tätigen!',
+        content: (
+            <span>
+                Reiche den Antrag im <a href="https://foerdermanager.aws.at/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>Fördermanager</a> ein. Du brauchst dafür deine Projektnummer aus der Beratung. WICHTIG: Noch keine Bestellungen tätigen!
+            </span>
+        ),
         warning: 'Erst beantragen, dann beauftragen!'
     },
     {

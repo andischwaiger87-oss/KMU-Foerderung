@@ -35,7 +35,7 @@ export default function StepConsultation({ onNext }) {
                     Sie wird zu 80% (Statusanalyse) bzw. 50% (Strategie) gefördert.
                 </p>
                 <a
-                    href="https://www.kmudigital.at"
+                    href="https://firmen.wko.at/suche_kmudigital"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', marginTop: '0.5rem', color: 'var(--color-primary)', fontWeight: 600 }}
