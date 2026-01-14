@@ -7,6 +7,7 @@ const Home = lazy(() => import('./views/Home'))
 const Wizard = lazy(() => import('./views/Wizard'))
 const Roadmap = lazy(() => import('./views/Roadmap'))
 const Resources = lazy(() => import('./views/Resources'))
+import Loader from './components/ui/Loader'
 
 // Component to handle route transitions
 const AnimatedRoutes = () => {
@@ -30,7 +31,7 @@ function App() {
   return (
     <Router>
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-        <Suspense fallback={<div className="loading-screen">Laden...</div>}>
+        <Suspense fallback={<Loader />}>
           <AnimatedRoutes />
         </Suspense>
         <Footer />

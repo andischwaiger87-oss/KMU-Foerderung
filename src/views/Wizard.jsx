@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { ArrowLeft, Home } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
 import styles from './Home.module.css'
+import stepStyles from '../components/wizard/WizardSteps.module.css'
 import Step1Status from '../components/wizard/Step1Status'
 import Step2Category from '../components/wizard/Step2Category'
 import Step3Calculator from '../components/wizard/Step3Calculator'
 import StepResult from '../components/wizard/StepResult'
 import StepConsultation from '../components/wizard/StepConsultation'
+import Stepper from '../components/wizard/Stepper'
 import '../styles/global.css'
 
 export default function Wizard() {
+    const navigate = useNavigate()
     const [step, setStep] = useState(1)
     const [data, setData] = useState({
         isKmu: false,
@@ -34,11 +37,22 @@ export default function Wizard() {
     }
 
     const handleConsultation = (status) => {
+        // Non-blocking now. If false, we just record it but let them proceed.
+        // The requirement says: "Wenn man auf 'noch nicht' tippt... Möglichkeit haben sich die weiteren Schritte fertig durchzugehen."
+        // But we should probably show the Info Screen as an INTERMEDIATE step or just let them pass?
+        // User said: "Dann soll zwar die Erklärung erscheinen, der User muss aber die Möglichkeit haben sich die weiteren Schritte fertig durchzugehen."
+        // So: Step -> Info Screen (with "Weiter" button) -> Next Step
         if (!status) {
-            setStep(100) // 100 = Consultation Required Info
+            setStep(100) // 100 = Info Screen
             return
         }
         handleNext({ hasConsultation: true })
+    }
+
+    const handleInfoProceed = () => {
+        handleNext({ hasConsultation: false })
+        // Step is currently 100. Next logical step is 3 (Category).
+        setStep(3)
     }
 
     const handleCategory = (id) => {
@@ -50,19 +64,35 @@ export default function Wizard() {
         setStep(5)
     }
 
+    // Calculate progress for Stepper
+    // Steps: 1 (Status), 2 (Consultation), 3 (Category), 4 (Calculator) = 4 Steps. Result is 5.
+    // Info screen (100) should probably look like Step 2.
+    const currentStep = step === 100 ? 2 : step > 4 ? 4 : step
+
     return (
-        <div className={styles.container} style={{ justifyContent: 'flex-start', paddingTop: '4rem' }}>
-            <header style={{ width: '100%', maxWidth: '500px', marginBottom: '2rem', display: 'flex', alignItems: 'center' }}>
-                {step > 1 && step < 5 && step !== 100 && (
-                    <button onClick={() => setStep(step - 1)} style={{ background: 'none', padding: '0.5rem', color: 'white' }}>
+        <div className={styles.container} style={{ justifyContent: 'flex-start', paddingTop: '2rem' }}>
+
+            {/* Navigation Header */}
+            <div style={{ width: '100%', maxWidth: '500px', marginBottom: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                {step > 1 ? (
+                    <button onClick={() => step === 100 ? setStep(2) : setStep(step - 1)} style={{ background: 'none', padding: '0.5rem', color: 'white' }}>
                         <ArrowLeft />
                     </button>
+                ) : (
+                    <Link to="/" style={{ padding: '0.5rem', color: 'white' }}>
+                        <Home />
+                    </Link>
                 )}
-                <div style={{ flex: 1, textAlign: 'center', fontWeight: 'bold' }}>
-                    {step === 100 ? 'Beratung notwendig' : step < 5 ? `Schritt ${step} von 4` : 'Ergebnis'}
-                </div>
-                <div style={{ width: 40 }} /> {/* Spacer */}
-            </header>
+
+                {/* Optional: Add a close/exit button on right if needed */}
+                <div style={{ width: 24 }}></div>
+            </div>
+
+            <Stepper currentStep={currentStep} totalSteps={4} />
+
+            <h1 className={stepStyles.question} style={{ fontSize: '1.2rem', opacity: 0.8, marginBottom: '2rem' }}>
+                {step === 100 ? 'Wichtiger Hinweis' : step === 5 ? 'Dein Ergebnis' : 'Förder-Check'}
+            </h1>
 
             <AnimatePresence mode="wait">
                 {step === 1 && <Step1Status key="step1" onNext={handleKmuCheck} />}
@@ -74,30 +104,42 @@ export default function Wizard() {
                 {step === 100 && (
                     <motion.div
                         key="consultation-info"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className={styles.stepContainer || 'stepContainer'} // Fallback if module not loaded perfectly
-                        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: '500px' }}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        className={stepStyles.stepContainer}
                     >
-                        <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', textAlign: 'center' }}>Beratung ist Pflicht!</h2>
-                        <p style={{ color: '#64748B', textAlign: 'center', marginBottom: '2rem' }}>
-                            Bevor Sie die Umsetzungsförderung beantragen können, müssen Sie eine <strong>KMU.DIGITAL Beratung</strong> absolvieren.
+                        <h2 className={stepStyles.question}>Beratung ist Pflicht!</h2>
+                        <p className={stepStyles.description}>
+                            Du kannst den Förder-Check gerne fortsetzen. Aber beachte: <br /><strong>Ohne Projektnummer aus der Beratung ist kein Antrag möglich.</strong>
                         </p>
-                        <div style={{ width: '100%', background: '#FFFFFF', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', marginBottom: '2rem' }}>
-                            <ul style={{ textAlign: 'left', marginBottom: '1rem', paddingLeft: '1.5rem', color: '#64748B' }}>
-                                <li>Status- & Potenzialanalyse (80% gefördert)</li>
-                                <li>Strategieberatung (50% gefördert)</li>
-                                <li>Freie Wahl aus zertifizierten Beratern</li>
-                            </ul>
-                            <div style={{ background: '#ecfdf5', padding: '1rem', borderRadius: '8px', color: '#065f46', marginBottom: '0.5rem' }}>
-                                <strong>Vorteil:</strong> Sie erhalten einen klaren Projektplan und eine Projektnummer für den Antrag.
+
+                        <div className={stepStyles.calculatorBox}>
+                            <div style={{ background: '#ecfdf5', padding: '1rem', borderRadius: '8px', color: '#065f46', marginBottom: '1rem' }}>
+                                <strong>Tipp:</strong> Absolviere die Beratung VOR dem Projektstart.
                             </div>
+
+                            <a
+                                href="https://firmen.wko.at/suche_kmudigital"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={stepStyles.primaryButton}
+                                style={{ marginBottom: '1rem', background: 'var(--color-primary)', textDecoration: 'none' }}
+                            >
+                                Berater jetzt finden
+                            </a>
+
+                            <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', marginBottom: '1rem' }}>
+                                Suche nach Thema, Ort oder "Webshop".
+                            </p>
                         </div>
-                        <a href="https://www.kmudigital.at" target="_blank" rel="noopener noreferrer" style={{ width: '100%', padding: '1rem', background: '#2563EB', color: 'white', borderRadius: '9999px', fontWeight: '600', display: 'flex', justifyContent: 'center', alignItems: 'center', textDecoration: 'none', marginBottom: '1rem' }}>
-                            Jetzt Beratung beantragen
-                        </a>
-                        <button onClick={() => setStep(1)} style={{ width: '100%', padding: '1rem', background: 'transparent', border: '2px solid #64748B', color: '#0F172A', borderRadius: '9999px', fontWeight: '600', cursor: 'pointer' }}>
-                            Zurück zum Start
+
+                        <button
+                            onClick={handleInfoProceed}
+                            className={stepStyles.optionButton}
+                            style={{ background: 'transparent', border: '1px solid var(--color-text-muted)' }}
+                        >
+                            Alles klar, weiter im Check
                         </button>
                     </motion.div>
                 )}

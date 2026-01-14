@@ -18,7 +18,7 @@ export default function Step2Category({ onNext }) {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -50, opacity: 0 }}
         >
-            <h2 className={styles.question}>Was planen Sie?</h2>
+            <h2 className={styles.question}>Was planst du?</h2>
             <div className={styles.grid}>
                 {categories.map((cat) => (
                     <button key={cat.id} className={styles.card} onClick={() => onNext(cat.id)}>

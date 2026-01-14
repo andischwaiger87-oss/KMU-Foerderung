@@ -11,7 +11,7 @@ export default function Step1Status({ onNext }) {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -50, opacity: 0 }}
         >
-            <h2 className={styles.question}>Sind Sie ein österreichisches KMU?</h2>
+            <h2 className={styles.question}>Bist du ein österreichisches KMU?</h2>
             <p className={styles.description}>
                 Die Förderung richtet sich an kleine und mittlere Unternehmen (KMU) mit Niederlassung in Österreich.
             </p>

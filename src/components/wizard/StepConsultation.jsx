@@ -11,9 +11,9 @@ export default function StepConsultation({ onNext }) {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -50, opacity: 0 }}
         >
-            <h2 className={styles.question}>Haben Sie die Beratung absolviert?</h2>
+            <h2 className={styles.question}>Hast du die Beratung absolviert?</h2>
             <p className={styles.description}>
-                Für die Umsetzungsförderung benötigen Sie eine abgeschlossene KMU.DIGITAL Beratung und eine aktive <strong>Projektnummer</strong>.
+                Für die Umsetzungsförderung brauchst du eine abgeschlossene KMU.DIGITAL Beratung und eine aktive <strong>Projektnummer</strong>.
             </p>
 
             <div className={styles.options}>
