@@ -10,6 +10,8 @@ const Wizard = lazy(() => import('./views/Wizard'))
 const Roadmap = lazy(() => import('./views/Roadmap'))
 const Resources = lazy(() => import('./views/Resources'))
 const Faq = lazy(() => import('./views/Faq'))
+const Imprint = lazy(() => import('./views/Imprint'))
+const Privacy = lazy(() => import('./views/Privacy'))
 
 // Component to handle route transitions
 const AnimatedRoutes = () => {
@@ -23,6 +25,8 @@ const AnimatedRoutes = () => {
         <Route path="/roadmap" element={<Roadmap />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/faq" element={<Faq />} />
+        <Route path="/impressum" element={<Imprint />} />
+        <Route path="/datenschutz" element={<Privacy />} />
       </Routes>
     </AnimatePresence>
   )

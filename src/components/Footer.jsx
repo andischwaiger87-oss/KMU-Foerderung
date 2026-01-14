@@ -16,9 +16,14 @@ export default function Footer() {
                 <img
                     src="/mosaik-logo.png"
                     alt="mosaik design"
-                    style={{ height: '18px', opacity: 0.9 }}
+                    style={{ height: '18px', opacity: 0.9, marginBottom: '1.5rem' }}
                 />
             </a>
+
+            <div style={{ fontSize: '0.75rem', opacity: 0.5, display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+                <a href="/impressum" style={{ color: 'inherit', textDecoration: 'none' }}>Impressum</a>
+                <a href="/datenschutz" style={{ color: 'inherit', textDecoration: 'none' }}>Datenschutz</a>
+            </div>
         </footer>
     )
 }
