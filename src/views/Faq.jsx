@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowLeft, ChevronDown, ChevronUp, Mic, Play, Pause, Volume2 } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './Resources.module.css' // Re-using similar styles
-import audioFile from '/faq_voiceover.mp3' // Placeholder, user needs to generate/provide file
 
 export default function FAQ() {
     const navigate = useNavigate()
     const [isPlaying, setIsPlaying] = useState(false)
-    const [audio] = useState(new Audio(audioFile))
+    // Access public folder file directly via string path to avoid build resolution errors
+    const [audio] = useState(new Audio('/faq_voiceover.mp3'))
 
     const toggleAudio = () => {
         if (isPlaying) {
