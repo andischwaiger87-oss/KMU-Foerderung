@@ -11,7 +11,7 @@ const steps = [
         icon: Users,
         content: (
             <span>
-                Vor dem Antrag MÜSSEN Sie eine KMU.DIGITAL Beratung absolvieren. <a href="https://firmen.wko.at/suche_kmudigital" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>Hier Berater finden.</a>
+                Vor dem Antrag MÜSSEN Sie eine KMU.DIGITAL Beratung absolvieren. <a href="https://firmen.wko.at/suche_kmudigital" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', textDecoration: 'underline' }}>Hier Berater finden.</a>
             </span>
         ),
         warning: 'Ohne Projektnummer kein Antrag!'
@@ -22,7 +22,7 @@ const steps = [
         icon: FileText,
         content: (
             <span>
-                Reiche den Antrag im <a href="https://foerdermanager.aws.at/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>Fördermanager</a> ein. Du brauchst dafür deine Projektnummer aus der Beratung. WICHTIG: Noch keine Bestellungen tätigen!
+                Reiche den Antrag im <a href="https://foerdermanager.aws.at/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', textDecoration: 'underline' }}>Fördermanager</a> ein. Du brauchst dafür deine Projektnummer aus der Beratung. WICHTIG: Noch keine Bestellungen tätigen!
             </span>
         ),
         warning: 'Erst beantragen, dann beauftragen!'
