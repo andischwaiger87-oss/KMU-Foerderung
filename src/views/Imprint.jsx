@@ -18,24 +18,24 @@ export default function Imprint() {
                     <p><strong>Für den Inhalt verantwortlich:</strong></p>
 
                     <p style={{ marginTop: '1rem', color: 'white', fontWeight: 'bold' }}>
-                        mosaik Webdesign & IT-Support
+                        mosaik
                     </p>
                     <p>
-                        [Inhaber Name]<br />
-                        [Adresse]<br />
-                        5xxx Salzburg<br />
+                        Schwaiger Andreas<br />
+                        Niederland 162<br />
+                        5091 Unken<br />
                         Österreich
                     </p>
 
                     <p style={{ marginTop: '1rem' }}>
                         <strong>Kontakt:</strong><br />
-                        E-Mail: hallo@mosaik-design.at<br />
-                        Tel: 0664 970 42 46
+                        E-Mail: <a href="mailto:hallo@mosaik-design.at" style={{ color: 'var(--color-primary)' }}>hallo@mosaik-design.at</a><br />
+                        Tel: <a href="tel:+4367764054347" style={{ color: 'var(--color-primary)' }}>+43 677 640 54 347</a>
                     </p>
 
                     <p style={{ marginTop: '1rem' }}>
                         <strong>Unternehmensgegenstand:</strong><br />
-                        Werbeagentur
+                        Einzelunternehmen
                     </p>
                     <p style={{ marginTop: '1rem' }}>
                         <strong>EU-Streitschlichtung:</strong><br />

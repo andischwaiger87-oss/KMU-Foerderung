@@ -17,7 +17,7 @@ export default function Privacy() {
                 <div style={{ background: 'var(--color-surface)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', color: 'var(--color-text-muted)', lineHeight: '1.6' }}>
                     <h2>Datenschutzerklärung</h2>
                     <p><strong>Verantwortlicher:</strong></p>
-                    <p>[Musterfirma GmbH]<br />[Musterstraße 1]<br />[1234 Musterstadt]</p>
+                    <p>Schwaiger Andreas<br />Niederland 162<br />5091 Unken</p>
 
                     <h3>1. Speicherung von Daten</h3>
                     <p>Diese App speichert Daten (Checklisten-Fortschritt) ausschließlich lokal auf Ihrem Endgerät (LocalStorage). Es werden keine personenbezogenen Daten an externe Server gesendet.</p>

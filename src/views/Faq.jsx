@@ -88,6 +88,25 @@ export default function FAQ() {
                 {/* Note: In a real app we would add progress bar etc */}
             </div>
 
+            {/* Resource Links Section */}
+            <div style={{ marginBottom: '2rem' }}>
+                <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem' }}>Wichtige Links</h3>
+                <div style={{ display: 'grid', gap: '0.75rem' }}>
+                    <a href="https://firmen.wko.at/suche_kmudigital" target="_blank" rel="noopener noreferrer" className={styles.card} style={{ textDecoration: 'none', padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>🔍 Berater finden</span>
+                        <ArrowLeft style={{ transform: 'rotate(135deg)' }} size={18} />
+                    </a>
+                    <a href="https://foerdermanager.aws.at/" target="_blank" rel="noopener noreferrer" className={styles.card} style={{ textDecoration: 'none', padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>📝 AWS Fördermanager</span>
+                        <ArrowLeft style={{ transform: 'rotate(135deg)' }} size={18} />
+                    </a>
+                    <a href="https://www.kmudigital.at" target="_blank" rel="noopener noreferrer" className={styles.card} style={{ textDecoration: 'none', padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>ℹ️ KMU.DIGITAL Infos</span>
+                        <ArrowLeft style={{ transform: 'rotate(135deg)' }} size={18} />
+                    </a>
+                </div>
+            </div>
+
             <div className={styles.accordion}>
                 {questions.map((item, index) => (
                     <AccordionItem key={index} question={item.q} answer={item.a} />
