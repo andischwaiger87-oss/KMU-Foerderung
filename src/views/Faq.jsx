@@ -40,11 +40,27 @@ export default function FAQ() {
         {
             q: "Wer darf die Förderung nutzen?",
             a: "Österreichische KMUs (Kleine und Mittlere Unternehmen). Auch Ein-Personen-Unternehmen (EPU)."
+        },
+        {
+            q: "Konkrete Beispiele: Wofür kann ich die Förderung nutzen?",
+            a: (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    <p>Hier sind typische Projekte, die gefördert werden:</p>
+                    <ul style={{ paddingLeft: '1.2rem', margin: 0 }}>
+                        <li><strong>Webshop:</strong> Programmierung und Einrichtung eines Onlineshops.</li>
+                        <li><strong>Sicherheit (Cyber Security):</strong> Einrichtung von Firewalls, sicheren VPN-Zugängen oder Backup-Systemen.</li>
+                        <li><strong>Buchungs-Tools:</strong> Online-Terminvereinbarung für Kunden.</li>
+                        <li><strong>Automatisierung:</strong> Verknüpfung von Programmen (z.B. Webshop spricht automatisch mit Buchhaltung).</li>
+                        <li><strong>Daten-Management:</strong> Einführung eines CRM-Systems zur Kundenverwaltung.</li>
+                    </ul>
+                    <p style={{ fontStyle: 'italic', fontSize: '0.85rem', marginTop: '0.5rem' }}>Wichtig: Reine Hardware-Anschaffungen (nur Laptops kaufen) oder Standard-Software (nur Office 365 Abo) werden NICHT gefördert.</p>
+                </div>
+            )
         }
     ]
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} style={{ maxWidth: '800px', width: '100%', paddingLeft: '1rem', paddingRight: '1rem' }}>
             <header className={styles.header}>
                 <button onClick={() => navigate(-1)} className={styles.backLink} style={{ color: 'white', background: 'none', border: 'none', cursor: 'pointer' }}>
                     <ArrowLeft size={24} />
@@ -88,7 +104,22 @@ function AccordionItem({ question, answer }) {
         <motion.div className={styles.card} style={{ marginBottom: '1rem' }}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                style={{ width: '100%', background: 'none', border: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 0, color: 'var(--color-text-main)', fontSize: '1rem', fontWeight: 600, textAlign: 'left', cursor: 'pointer' }}
+                style={{
+                    width: '100%',
+                    background: 'rgba(255,255,255,0.03)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: '8px',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '1rem',
+                    color: 'var(--color-text-main)',
+                    fontSize: '1rem',
+                    fontWeight: 600,
+                    textAlign: 'left',
+                    cursor: 'pointer',
+                    marginBottom: isOpen ? '0' : '0'
+                }}
             >
                 {question}
                 {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
@@ -101,9 +132,11 @@ function AccordionItem({ question, answer }) {
                         exit={{ height: 0, opacity: 0 }}
                         style={{ overflow: 'hidden' }}
                     >
-                        <p style={{ marginTop: '0.5rem', color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>
-                            {answer}
-                        </p>
+                        <div style={{ padding: '0 1rem 1rem 1rem', background: 'rgba(255,255,255,0.03)', borderBottomLeftRadius: '8px', borderBottomRightRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', borderTop: 'none' }}>
+                            <p style={{ marginTop: '0.5rem', color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                                {answer}
+                            </p>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

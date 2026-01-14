@@ -11,12 +11,27 @@ export default function Home() {
     return (
         <div className={styles.container}>
             {/* Top Bar with FAQ Link */}
+            {/* Top Bar with FAQ Link */}
             <div style={{ position: 'absolute', top: '1rem', right: '1rem', zIndex: 10 }}>
                 <button
                     onClick={() => navigate('/faq')}
-                    style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', border: 'none', borderRadius: '20px', padding: '0.5rem 1rem', color: 'white', fontSize: '0.85rem', cursor: 'pointer' }}
+                    style={{
+                        background: 'transparent',
+                        border: '2px solid white',
+                        borderRadius: '50%',
+                        width: '40px',
+                        height: '40px',
+                        color: 'white',
+                        fontSize: '1.2rem',
+                        fontWeight: 'bold',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backdropFilter: 'blur(5px)'
+                    }}
                 >
-                    ? Fragen & Antworten
+                    ?
                 </button>
             </div>
 

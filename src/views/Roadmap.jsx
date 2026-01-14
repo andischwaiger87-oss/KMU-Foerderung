@@ -9,7 +9,11 @@ const steps = [
         id: 1,
         title: 'Verpflichtende Beratung',
         icon: Users,
-        content: 'Vor dem Antrag MÜSSEN Sie eine KMU.DIGITAL Beratung absolvieren (Status- & Potenzialanalyse oder Strategieberatung). Das Ergebnis ist ein Beratungsbericht und eine Projektnummer.',
+        content: (
+            <span>
+                Vor dem Antrag MÜSSEN Sie eine KMU.DIGITAL Beratung absolvieren. <a href="https://firmen.wko.at/suche_kmudigital" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>Hier Berater finden.</a>
+            </span>
+        ),
         warning: 'Ohne Projektnummer kein Antrag!'
     },
     {
@@ -65,8 +69,17 @@ export default function Roadmap() {
                             <h3 className={styles.stepTitle}>{step.id}. {step.title}</h3>
                             <p className={styles.description}>{step.content}</p>
                             {step.warning && (
-                                <div className={styles.warning}>
-                                    <AlertTriangle size={16} /> {step.warning}
+                                <div className={styles.warning} style={{
+                                    background: 'rgba(239, 68, 68, 0.1)',
+                                    border: '1px solid rgba(239, 68, 68, 0.2)',
+                                    color: '#f87171',
+                                    padding: '0.75rem',
+                                    borderRadius: '8px',
+                                    display: 'flex',
+                                    gap: '8px',
+                                    alignItems: 'center'
+                                }}>
+                                    <AlertTriangle size={18} /> {step.warning}
                                 </div>
                             )}
                         </div>
