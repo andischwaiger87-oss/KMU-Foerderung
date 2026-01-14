@@ -12,7 +12,7 @@ export default defineConfig({
         name: 'KMU Digital Förderung',
         short_name: 'KMU Förderung',
         description: 'Ihr Weg zur KMU.DIGITAL Umsetzungsförderung',
-        theme_color: '#ffffff',
+        theme_color: '#111518',
         icons: [
           {
             src: 'pwa-192x192.png',

@@ -54,7 +54,7 @@ export default function Wizard() {
         <div className={styles.container} style={{ justifyContent: 'flex-start', paddingTop: '4rem' }}>
             <header style={{ width: '100%', maxWidth: '500px', marginBottom: '2rem', display: 'flex', alignItems: 'center' }}>
                 {step > 1 && step < 5 && step !== 100 && (
-                    <button onClick={() => setStep(step - 1)} style={{ background: 'none', padding: '0.5rem' }}>
+                    <button onClick={() => setStep(step - 1)} style={{ background: 'none', padding: '0.5rem', color: 'white' }}>
                         <ArrowLeft />
                     </button>
                 )}

@@ -20,8 +20,8 @@
   --color-text-dim: #7E7671;
   /* Dim Grey */
 
-  /* Gradient for Buttons/Highlights */
-  --gradient-brand: linear-gradient(135deg, #6F00FF 0%, #FF1EFF 100%);
+  /* Gradient for Buttons/Highlights - Violet dominant until 50% */
+  --gradient-brand: linear-gradient(135deg, #6F00FF 0%, #6F00FF 50%, #FF1EFF 100%);
 
   /* Layout */
   --spacing-xs: 0.25rem;
