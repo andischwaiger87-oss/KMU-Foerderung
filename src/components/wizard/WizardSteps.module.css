@@ -161,3 +161,65 @@
     cursor: not-allowed;
     transform: none;
 }
+
+/* Stepper Styles */
+.stepperContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.stepWrapper {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.stepWrapper:last-child {
+    flex: 0;
+}
+
+.stepDot {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 2px solid var(--color-text-muted);
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.8rem;
+    z-index: 2;
+    transition: all 0.3s;
+}
+
+.stepDot.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+    box-shadow: 0 0 10px rgba(111, 0, 255, 0.4);
+}
+
+.stepDot.completed {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: white;
+}
+
+.stepLine {
+    flex: 1;
+    height: 2px;
+    background: var(--color-text-muted);
+    opacity: 0.3;
+    margin: 0 4px;
+}
+
+.stepLine.lineCompleted {
+    background: var(--color-accent);
+    opacity: 1;
+}

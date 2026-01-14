@@ -10,6 +10,16 @@ export default function Home() {
 
     return (
         <div className={styles.container}>
+            {/* Top Bar with FAQ Link */}
+            <div style={{ position: 'absolute', top: '1rem', right: '1rem', zIndex: 10 }}>
+                <button
+                    onClick={() => navigate('/faq')}
+                    style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', border: 'none', borderRadius: '20px', padding: '0.5rem 1rem', color: 'white', fontSize: '0.85rem', cursor: 'pointer' }}
+                >
+                    ? Fragen & Antworten
+                </button>
+            </div>
+
             <header className={styles.hero}>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

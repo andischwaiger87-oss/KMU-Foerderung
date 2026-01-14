@@ -1,13 +1,15 @@
 import React, { Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
+import Loader from './components/ui/Loader'
+import Footer from './components/Footer'
 
 // Lazy load views for performance
 const Home = lazy(() => import('./views/Home'))
 const Wizard = lazy(() => import('./views/Wizard'))
 const Roadmap = lazy(() => import('./views/Roadmap'))
 const Resources = lazy(() => import('./views/Resources'))
-import Loader from './components/ui/Loader'
+const Faq = lazy(() => import('./views/Faq'))
 
 // Component to handle route transitions
 const AnimatedRoutes = () => {
@@ -17,15 +19,14 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
-        <Route path="/check" element={<Wizard />} />
+        <Route path="/wizard" element={<Wizard />} />
         <Route path="/roadmap" element={<Roadmap />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/faq" element={<Faq />} />
       </Routes>
     </AnimatePresence>
   )
 }
-
-import Footer from './components/Footer'
 
 function App() {
   return (
