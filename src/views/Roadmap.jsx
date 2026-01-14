@@ -1,21 +1,22 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FileText, Play, CheckSquare, Clock, AlertTriangle } from 'lucide-react'
+import { FileText, Play, CheckSquare, Clock, AlertTriangle, Users } from 'lucide-react'
 import styles from './Roadmap.module.css'
 import { Link } from 'react-router-dom'
 
 const steps = [
     {
         id: 1,
-        title: 'Vorbereitung',
-        icon: FileText,
-        content: 'Checke deine Förderfähigkeit (hast du ja schon!). Optional: Nutze die Status- & Potenzialanalyse (80% gefördert) um dein Projekt zu schärfen.'
+        title: 'Verpflichtende Beratung',
+        icon: Users,
+        content: 'Vor dem Antrag MÜSSEN Sie eine KMU.DIGITAL Beratung absolvieren (Status- & Potenzialanalyse oder Strategieberatung). Das Ergebnis ist ein Beratungsbericht und eine Projektnummer.',
+        warning: 'Ohne Projektnummer kein Antrag!'
     },
     {
         id: 2,
-        title: 'Antragstellung',
+        title: 'Antragstellung (Umsetzung)',
         icon: FileText,
-        content: 'Reiche den Antrag im Fördermanager ein. WICHTIG: Noch keine Bestellungen oder Aufträge tätigen!',
+        content: 'Reiche den Antrag im Fördermanager ein. Du brauchst dafür deine Projektnummer aus der Beratung. WICHTIG: Noch keine Bestellungen tätigen!',
         warning: 'Erst beantragen, dann beauftragen!'
     },
     {

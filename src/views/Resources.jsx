@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { HelpCircle, FileText, Phone, ChevronDown } from 'lucide-react'
+import { HelpCircle, FileText, Phone, ChevronDown, ExternalLink } from 'lucide-react'
 import styles from './Resources.module.css'
 
 const faqs = [
-    { q: 'Wer wird gefördert?', a: 'Kleine und mittlere Unternehmen (KMU) der gewerblichen Wirtschaft mit Standort in Österreich.' },
+    { q: 'Warum muss ich eine Beratung machen?', a: 'Die Richtlinien schreiben vor, dass vor der Umsetzung eine zertifizierte Status- & Potenzialanalyse oder Strategieberatung erfolgt sein muss. Diese hilft, das Projekt zu schärfen.' },
     { q: 'Wie hoch ist die Förderung?', a: '30% der förderbaren Kosten, maximal 6.000 Euro Zuschuss. Mindestprojektvolumen: 2.000 Euro, Maximal: 30.000 Euro.' },
-    { q: 'Wann darf ich starten?', a: 'Erst NACH Erhalt der Förderzusage. Bestellungen davor werden nicht anerkannt.' },
+    { q: 'Wann darf ich starten?', a: 'Erst NACH Erhalt der Förderzusage für die Umsetzung. Die Beratung muss davor schon abgeschlossen sein.' },
     { q: 'Wie lange habe ich Zeit?', a: 'Das Projekt muss innerhalb von 6 Monaten ab Zusage umgesetzt und abgerechnet werden.' }
 ]
 
@@ -21,13 +21,45 @@ export default function Resources() {
 
             <section className={styles.section}>
                 <h2 className={styles.sectionTitle}><FileText size={20} /> Wichtige Dokumente</h2>
+                <div style={{ display: 'grid', gap: '8px' }}>
+                    <a
+                        href="https://www.kmudigital.at/kmudigital-customer-journey.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.cardLink}
+                    >
+                        Ablaufdiagramm (Customer Journey) <ExternalLink size={14} />
+                    </a>
+                    <a
+                        href="https://kmudigital.at/inhalte/kmudigital-4.0-foerderrichtlinien-umsetzung.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.cardLink}
+                    >
+                        Richtlinie Umsetzung (PDF) <ExternalLink size={14} />
+                    </a>
+                    <a
+                        href="https://www.kmudigital.at/inhalte/kmudigital-4.0-foerderrichtlinien-beratung.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.cardLink}
+                    >
+                        Richtlinie Beratung (PDF) <ExternalLink size={14} />
+                    </a>
+                </div>
+            </section>
+
+            <section className={styles.section}>
+                <h2 className={styles.sectionTitle}><ExternalLink size={20} /> Links & Beantragung</h2>
                 <a
-                    href="https://kmudigital.at/inhalte/kmudigital-4.0-foerderrichtlinien-umsetzung.pdf"
+                    href="https://www.kmudigital.at"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.cardLink}
+                    style={{ borderColor: 'var(--color-primary)' }}
                 >
-                    Förderrichtlinie (PDF)
+                    <strong>Offizielle KMU.DIGITAL Seite</strong><br />
+                    <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>Berater finden & Beratung beantragen</span>
                 </a>
             </section>
 
