@@ -48,3 +48,10 @@ a {
     margin: 0 auto;
     padding: var(--spacing-md);
 }
+
+/* Logo Theme Switcher */
+.logo-dark { display: none; }
+.logo-light { display: block; }
+
+[data-theme='dark'] .logo-light { display: none; }
+[data-theme='dark'] .logo-dark { display: block; }

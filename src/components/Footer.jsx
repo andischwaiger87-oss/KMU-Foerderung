@@ -13,16 +13,25 @@ export default function Footer() {
                 Ein Service von
             </p>
             <a href="https://mosaik-design.at" target="_blank" rel="noopener noreferrer">
+                {/* Helles Logo für Dark Mode */}
                 <img
                     src="/mosaik-logo.png"
                     alt="mosaik design"
+                    className="logo-dark"
+                    style={{ height: '18px', opacity: 0.9, marginBottom: '1.5rem' }}
+                />
+                {/* Dunkles Logo für Light Mode */}
+                <img
+                    src="/mosaik-logo2.png"
+                    alt="mosaik design"
+                    className="logo-light"
                     style={{ height: '18px', opacity: 0.9, marginBottom: '1.5rem' }}
                 />
             </a>
 
             <div style={{ fontSize: '0.75rem', opacity: 0.5, display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-                <a href="/impressum" style={{ color: 'inherit', textDecoration: 'none' }}>Impressum</a>
-                <a href="/datenschutz" style={{ color: 'inherit', textDecoration: 'none' }}>Datenschutz</a>
+                <a href="/impressum" style={{ color: 'var(--color-text-main)', textDecoration: 'none' }}>Impressum</a>
+                <a href="/datenschutz" style={{ color: 'var(--color-text-main)', textDecoration: 'none' }}>Datenschutz</a>
             </div>
         </footer>
     )

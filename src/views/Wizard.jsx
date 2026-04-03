@@ -74,15 +74,15 @@ export default function Wizard() {
 
             {/* Navigation Header */}
             <div style={{ width: '100%', maxWidth: '500px', marginBottom: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                {step > 1 ? (
-                    <button onClick={() => step === 100 ? setStep(2) : setStep(step - 1)} style={{ background: 'none', padding: '0.5rem', color: 'white' }}>
-                        <ArrowLeft />
-                    </button>
-                ) : (
-                    <Link to="/" style={{ padding: '0.5rem', color: 'white' }}>
-                        <Home />
-                    </Link>
-                )}
+               {step > 1 ? (
+    <button onClick={() => step === 100 ? setStep(2) : setStep(step - 1)} style={{ background: 'none', padding: '0.5rem', color: 'var(--color-text-main)' }}>
+        <ArrowLeft />
+    </button>
+) : (
+    <Link to="/" style={{ padding: '0.5rem', color: 'var(--color-text-main)' }}>
+        <Home />
+    </Link>
+)}
 
                 {/* Optional: Add a close/exit button on right if needed */}
                 <div style={{ width: 24 }}></div>
