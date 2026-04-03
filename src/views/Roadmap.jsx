@@ -73,19 +73,20 @@ export default function Roadmap() {
                             <h3 className={styles.stepTitle}>{step.id}. {step.title}</h3>
                             <p className={styles.description}>{step.content}</p>
                             {step.warning && (
-                                <div className={styles.warning} style={{
-                                    background: 'rgba(239, 68, 68, 0.1)',
-                                    border: '1px solid rgba(239, 68, 68, 0.2)',
-                                    color: '#f87171',
-                                    padding: '0.75rem',
-                                    borderRadius: '8px',
-                                    display: 'flex',
-                                    gap: '8px',
-                                    alignItems: 'center'
-                                }}>
-                                    <AlertTriangle size={18} /> {step.warning}
-                                </div>
-                            )}
+    <div className={styles.warning} style={{
+        // Nutzen wir eine etwas neutralere Farbe für beide Themes
+        background: 'rgba(239, 68, 68, 0.15)',
+        border: '1px solid rgba(239, 68, 68, 0.3)',
+        color: '#ef4444', // Ein rot, das auf hell und dunkel lesbar ist
+        padding: '0.75rem',
+        borderRadius: '8px',
+        display: 'flex',
+        gap: '8px',
+        alignItems: 'center'
+    }}>
+        <AlertTriangle size={18} /> {step.warning}
+    </div>
+)}
                         </div>
                     </motion.div>
                 ))}

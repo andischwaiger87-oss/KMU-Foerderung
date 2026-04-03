@@ -12,7 +12,7 @@ export default function Footer() {
             <p style={{ fontSize: '0.7rem', color: 'var(--color-text-dim)', marginBottom: '0.25rem' }}>
                 Ein Service von
             </p>
-            <a href="https://mosaik-design.at" target="_blank" rel="noopener noreferrer">
+            <a href="https://mosaik-design.at" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', justifyContent: 'center', width: '100%' }}>
                 {/* Helles Logo für Dark Mode */}
                 <img
                     src="/mosaik-logo.png"

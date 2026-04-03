@@ -25,7 +25,14 @@ export default function StepConsultation({ onNext }) {
                 </button>
             </div>
 
-            <div className={styles.infoBox} style={{ marginTop: '2rem', fontSize: '0.9rem', padding: '1rem', background: 'var(--color-surface)', borderRadius: 'var(--radius-md)' }}>
+            <div className={styles.infoBox} style={{ 
+    marginTop: '2rem', 
+    fontSize: '0.9rem', 
+    padding: '1rem', 
+    background: 'var(--color-surface)', 
+    border: '1px solid var(--color-surface-hover)', // Füge einen subtilen Rahmen hinzu
+    borderRadius: 'var(--radius-md)' 
+}}>
                 <p style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
                     <HelpCircle size={16} color="var(--color-primary)" />
                     <strong>Warum Beratung?</strong>

@@ -55,7 +55,7 @@
 }
 
 .accordionItem {
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2); /* HIER GEÄNDERT */
 }
 
 .accordionItem:last-child {
@@ -68,7 +68,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: white;
+    background: transparent; /* HIER GEÄNDERT: von white auf transparent */
     text-align: left;
     font-weight: 600;
     font-size: 1rem;
@@ -95,7 +95,7 @@
     display: block;
     width: 100%;
     padding: 1rem;
-    background: white;
+    background: transparent; /* HIER GEÄNDERT: von white auf transparent */
     color: var(--color-primary);
     border: 2px solid var(--color-primary);
     border-radius: var(--radius-full);
