@@ -1,27 +1,19 @@
+/* Standard: Helles Theme (Light Mode) */
 :root {
-  /* Mosaik Brand Colors */
-  --color-background: #111518;
-  /* Deep Space Black */
-  --color-surface: #1E293B;
-  /* Slightly lighter for cards */
-  --color-surface-glass: rgba(17, 21, 24, 0.7);
-  /* Dark Glass */
+  /* Mosaik Brand Colors - Helle Version */
+  --color-background: #F8FAFC; /* Sehr helles Grau/Blau */
+  --color-surface: #FFFFFF; /* Reines Weiß für Cards */
+  --color-surface-glass: rgba(255, 255, 255, 0.7); /* Helles Glas */
 
-  --color-primary: #6F00FF;
-  /* Electric Purple */
+  --color-primary: #6F00FF; /* Electric Purple bleibt */
   --color-primary-dark: #5800cc;
-  --color-secondary: #FF1EFF;
-  /* Neon Magenta */
+  --color-secondary: #FF1EFF; /* Neon Magenta bleibt */
   --color-accent: #FF1EFF;
 
-  --color-text-main: #FFFFFF;
-  /* Pure White */
-  --color-text-muted: #94A3B8;
-  /* Slate 400 */
-  --color-text-dim: #7E7671;
-  /* Dim Grey */
+  --color-text-main: #0F172A; /* Sehr dunkles Blau/Grau für gute Lesbarkeit */
+  --color-text-muted: #64748B; /* Slate 500 */
+  --color-text-dim: #94A3B8;
 
-  /* Gradient for Buttons/Highlights - Violet dominant until 50% */
   --gradient-brand: linear-gradient(135deg, #6F00FF 0%, #6F00FF 50%, #FF1EFF 100%);
 
   /* Layout */
@@ -38,22 +30,25 @@
   --radius-md: 12px;
   --radius-lg: 20px;
   --radius-full: 9999px;
-  /* Pill Shape */
 
-  /* Effects */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5);
-  --shadow-glow: 0 0 20px rgba(111, 0, 255, 0.3);
-  /* Purple Glow */
+  /* Effects - Angepasst für hellen Hintergrund */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-glow: 0 0 20px rgba(111, 0, 255, 0.15); /* Schwächeres Glow */
   --blur-glass: 12px;
 }
 
-/* Enforce Dark Mode by default as per Brand Guide */
-@media (prefers-color-scheme: light) {
-  :root {
-    /* Keep dark theme even in light mode for consistency with Brand Guide "Deep Space Black" */
-    --color-background: #111518;
-    --color-surface: #1E293B;
-    --color-text-main: #FFFFFF;
-  }
+/* Dark Theme Overrides */
+[data-theme='dark'] {
+  --color-background: #111518;
+  --color-surface: #1E293B;
+  --color-surface-glass: rgba(17, 21, 24, 0.7);
+  
+  --color-text-main: #FFFFFF;
+  --color-text-muted: #94A3B8;
+  --color-text-dim: #7E7671;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5);
+  --shadow-glow: 0 0 20px rgba(111, 0, 255, 0.3);
 }

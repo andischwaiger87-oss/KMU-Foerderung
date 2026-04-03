@@ -14,25 +14,25 @@ export default function Home() {
             {/* Top Bar with FAQ Link */}
             <div style={{ position: 'absolute', top: '1rem', right: '1rem', zIndex: 10 }}>
                 <button
-                    onClick={() => navigate('/faq')}
-                    style={{
-                        background: 'transparent',
-                        border: '2px solid white',
-                        borderRadius: '50%',
-                        width: '40px',
-                        height: '40px',
-                        color: 'white',
-                        fontSize: '1.2rem',
-                        fontWeight: 'bold',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        backdropFilter: 'blur(5px)'
-                    }}
-                >
-                    ?
-                </button>
+    onClick={() => navigate('/faq')}
+    style={{
+        background: 'transparent',
+        border: '2px solid var(--color-text-main)', /* HIER GEÄNDERT */
+        borderRadius: '50%',
+        width: '40px',
+        height: '40px',
+        color: 'var(--color-text-main)', /* HIER GEÄNDERT */
+        fontSize: '1.2rem',
+        fontWeight: 'bold',
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backdropFilter: 'blur(5px)'
+    }}
+>
+    ?
+</button>
             </div>
 
             <header className={styles.hero}>
