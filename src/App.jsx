@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AnimatePresence } from 'framer-motion'
 import Loader from './components/ui/Loader'
 import Footer from './components/Footer'
+// NEW: Import the minimalist icons from lucide-react
+import { Sun, Moon } from 'lucide-react'
 
 // Lazy load views for performance
 const Home = lazy(() => import('./views/Home'))
@@ -76,7 +78,8 @@ function App() {
                 }}
                 title={isDarkMode ? "In den hellen Modus wechseln" : "In den dunklen Modus wechseln"}
             >
-                {isDarkMode ? '☀️' : '🌙'}
+                {/* MODIFIED: Use minimalist icons from lucide-react */}
+                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
         </div>
 

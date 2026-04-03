@@ -66,9 +66,14 @@
     gap: 12px;
     padding: 10px;
     border-radius: var(--radius-sm);
-    background: rgba(0, 0, 0, 0.03);
+    background: rgba(128, 128, 128, 0.08); /* HIER GEÄNDERT: Neutrales Grau */
+    border: 1px solid rgba(128, 128, 128, 0.15); /* HINZUGEFÜGT: Zarter Rahmen für Kontrast */
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all 0.2s;
+}
+
+.item:hover {
+    background: rgba(128, 128, 128, 0.15); /* HIER GEÄNDERT */
 }
 
 .item:hover {

@@ -101,9 +101,15 @@
 .slider {
     width: 100%;
     height: 6px;
-    background: #e2e8f0;
+    background: rgba(128, 128, 128, 0.3); /* HIER GEÄNDERT: Vorher #e2e8f0 */
     border-radius: 4px;
     appearance: none;
+}
+
+.resultGroup {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(128, 128, 128, 0.2); /* HIER GEÄNDERT: Vorher #f1f5f9 */
 }
 
 .slider::-webkit-slider-thumb {
@@ -119,7 +125,7 @@
 .resultGroup {
     text-align: center;
     padding-top: var(--spacing-md);
-    border-top: 1px solid #f1f5f9;
+    border-top: 1px solid rgba(128, 128, 128, 0.2); /* HIER GEÄNDERT: Vorher #f1f5f9 */
 }
 
 .grantAmount {
