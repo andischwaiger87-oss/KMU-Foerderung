@@ -7,17 +7,19 @@ export default function Imprint() {
     const navigate = useNavigate()
     return (
         <div className={styles.container}>
-            <header className={styles.header}>
-                <button onClick={() => navigate(-1)} className={styles.backLink} style={{ color: 'white', background: 'none', border: 'none', cursor: 'pointer' }}>
-                    <ArrowLeft size={24} />
+            {/* HIER GEÄNDERT: Header Layout & Pfeil Farbe */}
+            <header className={styles.header} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '2rem', gap: '1rem', paddingTop: '2rem' }}>
+                <button onClick={() => navigate(-1)} className={styles.backLink} style={{ color: 'var(--color-text-main)', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500 }}>
+                    <ArrowLeft size={24} /> Zurück
                 </button>
-                <h1 className={styles.title}>Impressum</h1>
+                <h1 className={styles.title} style={{ margin: 0 }}>Impressum</h1>
             </header>
             <div className={styles.content}>
-                <div style={{ background: 'var(--color-surface)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', color: 'var(--color-text-muted)', lineHeight: '1.6' }}>
+                {/* HIER GEÄNDERT: Harte Textfarbe "white" (bei "mosaik") entfernt, damit es im Light Mode lesbar bleibt */}
+                <div style={{ background: 'var(--color-surface)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', color: 'var(--color-text-muted)', lineHeight: '1.6', boxShadow: 'var(--shadow-sm)' }}>
                     <p><strong>Für den Inhalt verantwortlich:</strong></p>
 
-                    <p style={{ marginTop: '1rem', color: 'white', fontWeight: 'bold' }}>
+                    <p style={{ marginTop: '1rem', color: 'var(--color-text-main)', fontWeight: 'bold' }}>
                         mosaik
                     </p>
                     <p>

@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, ChevronDown, ChevronUp, Mic, Play, Pause, Volume2 } from 'lucide-react'
-import { Link, useNavigate } from 'react-router-dom'
-import styles from './Resources.module.css' // Re-using similar styles
+import { ArrowLeft, ChevronDown, ChevronUp, Mic, Play, Pause } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import styles from './Resources.module.css'
 
 export default function FAQ() {
     const navigate = useNavigate()
     const [isPlaying, setIsPlaying] = useState(false)
-    // Access public folder file directly via string path to avoid build resolution errors
     const [audio] = useState(new Audio('/faq_voiceover.mp3'))
 
     const toggleAudio = () => {
@@ -15,7 +14,6 @@ export default function FAQ() {
             audio.pause()
         } else {
             audio.play().catch(e => console.log("Audio file missing or error", e))
-            // Since file might not exist yet, we handle error gracefully in console
         }
         setIsPlaying(!isPlaying)
     }
@@ -61,16 +59,17 @@ export default function FAQ() {
 
     return (
         <div className={styles.container} style={{ maxWidth: '800px', width: '100%', paddingLeft: '1rem', paddingRight: '1rem' }}>
-            <header className={styles.header} style={{ display: 'flex', alignItems: 'center', marginBottom: '2rem' }}>
-                {/* HIER GEÄNDERT: color von 'white' auf 'var(--color-text-main)' */}
-                <button onClick={() => navigate(-1)} className={styles.backLink} style={{ color: 'var(--color-text-main)', background: 'none', border: 'none', cursor: 'pointer', marginRight: '1rem' }}>
-                    <ArrowLeft size={24} />
+            
+            {/* HIER GEÄNDERT: Header Layout repariert (Flex-Direction Column für sauberen Umbruch) */}
+            <header className={styles.header} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '2rem', gap: '1rem', paddingTop: '2rem' }}>
+                <button onClick={() => navigate(-1)} className={styles.backLink} style={{ color: 'var(--color-text-main)', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500 }}>
+                    <ArrowLeft size={24} /> Zurück
                 </button>
                 <h1 className={styles.title} style={{ margin: 0 }}>Häufige Fragen</h1>
             </header>
 
             {/* Audio Player Card */}
-            <div style={{ background: 'var(--gradient-brand)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', color: 'white', marginBottom: '2rem', boxShadow: 'var(--shadow-glow)' }}>
+            <div style={{ background: 'var(--gradient-brand)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', color: 'white', marginBottom: '2.5rem', boxShadow: 'var(--shadow-glow)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
                     <div>
                         <h3 style={{ margin: 0, fontSize: '1.1rem' }}>Erklärung anhören</h3>
@@ -89,19 +88,19 @@ export default function FAQ() {
             </div>
 
             {/* Resource Links Section */}
-            <div style={{ marginBottom: '2rem' }}>
+            <div style={{ marginBottom: '3rem' }}>
                 <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem' }}>Wichtige Links</h3>
-                <div style={{ display: 'grid', gap: '0.75rem' }}>
-                    {/* HIER GEÄNDERT: Hintergrund und Rahmen für die Links im FAQ-Bereich */}
-                    <a href="https://firmen.wko.at/suche_kmudigital" target="_blank" rel="noopener noreferrer" className={styles.card} style={{ textDecoration: 'none', padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--color-surface)', borderRadius: '8px', border: '1px solid rgba(128,128,128,0.2)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {/* HIER GEÄNDERT: Rahmen (border) entfernt, stattdessen shadow-sm genutzt für modernen Look */}
+                    <a href="https://firmen.wko.at/suche_kmudigital" target="_blank" rel="noopener noreferrer" className={styles.card} style={{ textDecoration: 'none', padding: '1.2rem 1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--color-surface)', borderRadius: '12px', boxShadow: 'var(--shadow-sm)' }}>
                         <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>Berater finden</span>
                         <ArrowLeft style={{ transform: 'rotate(135deg)', color: 'var(--color-primary)' }} size={18} />
                     </a>
-                    <a href="https://foerdermanager.aws.at/" target="_blank" rel="noopener noreferrer" className={styles.card} style={{ textDecoration: 'none', padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--color-surface)', borderRadius: '8px', border: '1px solid rgba(128,128,128,0.2)' }}>
+                    <a href="https://foerdermanager.aws.at/" target="_blank" rel="noopener noreferrer" className={styles.card} style={{ textDecoration: 'none', padding: '1.2rem 1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--color-surface)', borderRadius: '12px', boxShadow: 'var(--shadow-sm)' }}>
                         <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>AWS Fördermanager</span>
                         <ArrowLeft style={{ transform: 'rotate(135deg)', color: 'var(--color-primary)' }} size={18} />
                     </a>
-                    <a href="https://www.kmudigital.at" target="_blank" rel="noopener noreferrer" className={styles.card} style={{ textDecoration: 'none', padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--color-surface)', borderRadius: '8px', border: '1px solid rgba(128,128,128,0.2)' }}>
+                    <a href="https://www.kmudigital.at" target="_blank" rel="noopener noreferrer" className={styles.card} style={{ textDecoration: 'none', padding: '1.2rem 1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--color-surface)', borderRadius: '12px', boxShadow: 'var(--shadow-sm)' }}>
                         <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>KMU.DIGITAL Infos</span>
                         <ArrowLeft style={{ transform: 'rotate(135deg)', color: 'var(--color-primary)' }} size={18} />
                     </a>
@@ -109,6 +108,7 @@ export default function FAQ() {
             </div>
 
             <div className={styles.accordion}>
+                <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem' }}>Antworten</h3>
                 {questions.map((item, index) => (
                     <AccordionItem key={index} question={item.q} answer={item.a} />
                 ))}
@@ -121,29 +121,30 @@ function AccordionItem({ question, answer }) {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <motion.div className={styles.card} style={{ marginBottom: '1rem' }}>
+        <motion.div className={styles.card} style={{ marginBottom: '0.75rem' }}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 style={{
                     width: '100%',
-                    // HIER GEÄNDERT: Neutrale Farben statt hartem Weiß
-                    background: 'rgba(128,128,128,0.05)',
-                    border: '1px solid rgba(128,128,128,0.2)',
-                    borderRadius: '8px',
+                    // HIER GEÄNDERT: Rahmen entfernt, Hintergrund dezenter
+                    background: 'var(--color-surface)',
+                    border: 'none',
+                    boxShadow: 'var(--shadow-sm)',
+                    borderRadius: isOpen ? '12px 12px 0 0' : '12px',
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    padding: '1rem',
+                    padding: '1.2rem 1rem',
                     color: 'var(--color-text-main)',
                     fontSize: '1rem',
                     fontWeight: 600,
                     textAlign: 'left',
                     cursor: 'pointer',
-                    marginBottom: isOpen ? '0' : '0'
+                    transition: 'border-radius 0.2s'
                 }}
             >
                 {question}
-                {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                {isOpen ? <ChevronUp size={20} color="var(--color-text-muted)" /> : <ChevronDown size={20} color="var(--color-text-muted)" />}
             </button>
             <AnimatePresence>
                 {isOpen && (
@@ -153,9 +154,9 @@ function AccordionItem({ question, answer }) {
                         exit={{ height: 0, opacity: 0 }}
                         style={{ overflow: 'hidden' }}
                     >
-                        {/* HIER GEÄNDERT: Neutrale Farben statt hartem Weiß */}
-                        <div style={{ padding: '0 1rem 1rem 1rem', background: 'rgba(128,128,128,0.05)', borderBottomLeftRadius: '8px', borderBottomRightRadius: '8px', border: '1px solid rgba(128,128,128,0.2)', borderTop: 'none' }}>
-                            <p style={{ marginTop: '0.5rem', color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                        {/* HIER GEÄNDERT: Rahmen entfernt, gleicher Hintergrund wie Button */}
+                        <div style={{ padding: '0 1rem 1.2rem 1rem', background: 'var(--color-surface)', borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', boxShadow: '0 2px 4px 0 rgb(0 0 0 / 0.05)' }}>
+                            <p style={{ margin: 0, color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.6, borderTop: '1px solid rgba(128,128,128,0.1)', paddingTop: '1rem' }}>
                                 {answer}
                             </p>
                         </div>
