@@ -6,17 +6,21 @@ import { useNavigate } from 'react-router-dom'
 export default function Privacy() {
     const navigate = useNavigate()
     return (
-        <div className={styles.container}>
-             {/* HIER GEÄNDERT: Header Layout & Pfeil Farbe */}
-             <header className={styles.header} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: '2rem', gap: '1rem', paddingTop: '2rem' }}>
-                <button onClick={() => navigate(-1)} className={styles.backLink} style={{ color: 'var(--color-text-main)', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500 }}>
-                    <ArrowLeft size={24} /> Zurück
-                </button>
+        <div className={styles.container} style={{ paddingTop: '4.5rem', position: 'relative' }}>
+             
+             <button 
+                onClick={() => navigate(-1)} 
+                style={{ position: 'absolute', top: '1rem', left: '1rem', color: 'var(--color-text-main)', background: 'transparent', border: 'none', cursor: 'pointer', height: '38px', width: '38px', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10 }}
+            >
+                <ArrowLeft size={24} />
+            </button>
+
+            <header className={styles.header} style={{ marginBottom: '2rem' }}>
                 <h1 className={styles.title} style={{ margin: 0 }}>Datenschutz</h1>
             </header>
+            
             <div className={styles.content}>
                 <div style={{ background: 'var(--color-surface)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', color: 'var(--color-text-muted)', lineHeight: '1.6', boxShadow: 'var(--shadow-sm)' }}>
-                    {/* HIER GEÄNDERT: h2 und h3 auf var(--color-text-main) gesetzt, damit sie in beiden Themes passen */}
                     <h2 style={{ color: 'var(--color-text-main)' }}>Datenschutzerklärung</h2>
                     <p><strong>Verantwortlicher:</strong></p>
                     <p>Schwaiger Andreas<br />Niederland 162<br />5091 Unken</p>
