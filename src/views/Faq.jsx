@@ -61,11 +61,12 @@ export default function FAQ() {
 
     return (
         <div className={styles.container} style={{ maxWidth: '800px', width: '100%', paddingLeft: '1rem', paddingRight: '1rem' }}>
-            <header className={styles.header}>
-                <button onClick={() => navigate(-1)} className={styles.backLink} style={{ color: 'white', background: 'none', border: 'none', cursor: 'pointer' }}>
+            <header className={styles.header} style={{ display: 'flex', alignItems: 'center', marginBottom: '2rem' }}>
+                {/* HIER GEÄNDERT: color von 'white' auf 'var(--color-text-main)' */}
+                <button onClick={() => navigate(-1)} className={styles.backLink} style={{ color: 'var(--color-text-main)', background: 'none', border: 'none', cursor: 'pointer', marginRight: '1rem' }}>
                     <ArrowLeft size={24} />
                 </button>
-                <h1 className={styles.title}>Häufige Fragen</h1>
+                <h1 className={styles.title} style={{ margin: 0 }}>Häufige Fragen</h1>
             </header>
 
             {/* Audio Player Card */}
@@ -85,24 +86,24 @@ export default function FAQ() {
                     {isPlaying ? <Pause size={20} fill="white" /> : <Play size={20} fill="white" />}
                     {isPlaying ? 'Pause' : 'Abspielen'}
                 </button>
-                {/* Note: In a real app we would add progress bar etc */}
             </div>
 
             {/* Resource Links Section */}
             <div style={{ marginBottom: '2rem' }}>
                 <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem' }}>Wichtige Links</h3>
                 <div style={{ display: 'grid', gap: '0.75rem' }}>
-                    <a href="https://firmen.wko.at/suche_kmudigital" target="_blank" rel="noopener noreferrer" className={styles.card} style={{ textDecoration: 'none', padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    {/* HIER GEÄNDERT: Hintergrund und Rahmen für die Links im FAQ-Bereich */}
+                    <a href="https://firmen.wko.at/suche_kmudigital" target="_blank" rel="noopener noreferrer" className={styles.card} style={{ textDecoration: 'none', padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--color-surface)', borderRadius: '8px', border: '1px solid rgba(128,128,128,0.2)' }}>
                         <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>Berater finden</span>
-                        <ArrowLeft style={{ transform: 'rotate(135deg)' }} size={18} />
+                        <ArrowLeft style={{ transform: 'rotate(135deg)', color: 'var(--color-primary)' }} size={18} />
                     </a>
-                    <a href="https://foerdermanager.aws.at/" target="_blank" rel="noopener noreferrer" className={styles.card} style={{ textDecoration: 'none', padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <a href="https://foerdermanager.aws.at/" target="_blank" rel="noopener noreferrer" className={styles.card} style={{ textDecoration: 'none', padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--color-surface)', borderRadius: '8px', border: '1px solid rgba(128,128,128,0.2)' }}>
                         <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>AWS Fördermanager</span>
-                        <ArrowLeft style={{ transform: 'rotate(135deg)' }} size={18} />
+                        <ArrowLeft style={{ transform: 'rotate(135deg)', color: 'var(--color-primary)' }} size={18} />
                     </a>
-                    <a href="https://www.kmudigital.at" target="_blank" rel="noopener noreferrer" className={styles.card} style={{ textDecoration: 'none', padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <a href="https://www.kmudigital.at" target="_blank" rel="noopener noreferrer" className={styles.card} style={{ textDecoration: 'none', padding: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--color-surface)', borderRadius: '8px', border: '1px solid rgba(128,128,128,0.2)' }}>
                         <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>KMU.DIGITAL Infos</span>
-                        <ArrowLeft style={{ transform: 'rotate(135deg)' }} size={18} />
+                        <ArrowLeft style={{ transform: 'rotate(135deg)', color: 'var(--color-primary)' }} size={18} />
                     </a>
                 </div>
             </div>
@@ -125,8 +126,9 @@ function AccordionItem({ question, answer }) {
                 onClick={() => setIsOpen(!isOpen)}
                 style={{
                     width: '100%',
-                    background: 'rgba(255,255,255,0.03)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    // HIER GEÄNDERT: Neutrale Farben statt hartem Weiß
+                    background: 'rgba(128,128,128,0.05)',
+                    border: '1px solid rgba(128,128,128,0.2)',
                     borderRadius: '8px',
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -151,7 +153,8 @@ function AccordionItem({ question, answer }) {
                         exit={{ height: 0, opacity: 0 }}
                         style={{ overflow: 'hidden' }}
                     >
-                        <div style={{ padding: '0 1rem 1rem 1rem', background: 'rgba(255,255,255,0.03)', borderBottomLeftRadius: '8px', borderBottomRightRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', borderTop: 'none' }}>
+                        {/* HIER GEÄNDERT: Neutrale Farben statt hartem Weiß */}
+                        <div style={{ padding: '0 1rem 1rem 1rem', background: 'rgba(128,128,128,0.05)', borderBottomLeftRadius: '8px', borderBottomRightRadius: '8px', border: '1px solid rgba(128,128,128,0.2)', borderTop: 'none' }}>
                             <p style={{ marginTop: '0.5rem', color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>
                                 {answer}
                             </p>

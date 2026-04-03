@@ -1,9 +1,8 @@
-// C:\Users\Andi\KMU-Foerderung\views\Home.jsx
-
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-// HIER: Zap, Euro, ShieldCheck entfernt, da unten nicht genutzt (Clean up)
+// Die Icons für die Benefit-Cards sind wieder da!
+import { ArrowRight, Zap, Euro, ShieldCheck } from 'lucide-react'
 import styles from './Home.module.css'
 import Checklist from '../components/Checklist'
 
@@ -11,10 +10,9 @@ export default function Home() {
     const navigate = useNavigate()
 
     return (
-        <div className={styles.container}>
-            {/* --- DIE ALTE TOP BAR WURDE HIER ENTFERNT --- */}
-            {/* Die Funktionalität zieht global in die App.jsx um */}
-
+        // HINZUGEFÜGT: paddingTop, damit der Badge nicht mehr von den Header-Icons verdeckt wird
+        <div className={styles.container} style={{ paddingTop: '3rem' }}>
+            
             <header className={styles.hero}>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -32,14 +30,31 @@ export default function Home() {
                     </p>
 
                     <button onClick={() => navigate('/wizard')} className={styles.ctaButton}>
-                        Förder-Check starten {/* HIER: ArrowRight Icon fehlt im Code, falls gewünscht hinzufügen */}
+                        Förder-Check starten <ArrowRight />
                     </button>
                 </motion.div>
             </header>
 
-            {/* --- BENEFITS SECTION LÄUFT UNTEN WEITER WIE GEHABT --- */}
+            {/* WIEDER HERGESTELLT: Die Infokarten unter dem Button */}
             <section className={styles.benefits}>
-                {/* ... Rest der Datei bleibt gleich ... */}
+                <BenefitCard
+                    icon={Zap}
+                    title="Schnelle Prüfung"
+                    desc="Erfahre sofort, ob du förderfähig bist."
+                    delay={0.2}
+                />
+                <BenefitCard
+                    icon={Euro}
+                    title="30% Zuschuss"
+                    desc="Für Investitionen von 2.000 € bis 30.000 €."
+                    delay={0.4}
+                />
+                <BenefitCard
+                    icon={ShieldCheck}
+                    title="Sicher & Offiziell"
+                    desc="Basierend auf den aktuellen KMU.DIGITAL Richtlinien."
+                    delay={0.6}
+                />
             </section>
 
             <section style={{ width: '100%', maxWidth: '600px', marginTop: '2rem' }}>
@@ -48,4 +63,20 @@ export default function Home() {
         </div>
     )
 }
-// ... BenefitCard Funktion bleibt am Ende ...
+
+function BenefitCard({ icon: Icon, title, desc, delay }) {
+    return (
+        <motion.div
+            className={styles.card}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay, duration: 0.5 }}
+        >
+            <div className={styles.iconWrapper}>
+                <Icon size={24} />
+            </div>
+            <h3 className={styles.cardTitle}>{title}</h3>
+            <p className={styles.cardDesc}>{desc}</p>
+        </motion.div>
+    )
+}
