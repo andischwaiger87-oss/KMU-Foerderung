@@ -19,14 +19,14 @@ export default function Home() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                 >
-                    <div className={styles.badge}>Bis zu 6.000 € Zuschuss</div>
+                    <div className={styles.badge}>Antragstellung beendet</div>
                     <h1 className={styles.title}>
                         Digitalisierung <br />
                         <span className={styles.highlight}>einfach gemacht.</span>
                     </h1>
                     <p className={styles.subtitle}>
-                        Der schnellste Weg zu deiner Umsetzungsförderung.
-                        Checke deine Chancen in unter 2 Minuten.
+                        So hat die Umsetzungsförderung funktioniert.
+                        Neue Anträge sind nicht mehr möglich.
                     </p>
 
                     <button onClick={() => navigate('/wizard')} className={styles.ctaButton}>
@@ -52,7 +52,7 @@ export default function Home() {
                 <BenefitCard
                     icon={ShieldCheck}
                     title="Sicher & Offiziell"
-                    desc="Basierend auf den aktuellen KMU.DIGITAL Richtlinien."
+                    desc="Basierend auf den KMU.DIGITAL Richtlinien bis 2026."
                     delay={0.6}
                 />
             </section>

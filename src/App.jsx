@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react
 import { AnimatePresence } from 'framer-motion'
 import Loader from './components/ui/Loader'
 import Footer from './components/Footer'
+import ProgramNotice from './components/ProgramNotice'
 import { Sun, Moon, HelpCircle } from 'lucide-react' 
 
 // Lazy load views for performance
@@ -89,6 +90,8 @@ function App() {
             </Link>
 
         </div>
+
+        <ProgramNotice />
 
         <Suspense fallback={<Loader />}>
           <AnimatedRoutes />
